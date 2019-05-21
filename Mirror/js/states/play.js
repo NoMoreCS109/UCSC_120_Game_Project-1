@@ -47,7 +47,7 @@ Play.prototype = {
 		debug.addDebug();
 	},
 	update: function() {
-		light.updateLight();
+		// light.updateLight();
 		hud.updateHUD();
 		debug.updateDebug();
 		if(MIRROR_TOUCHED) {

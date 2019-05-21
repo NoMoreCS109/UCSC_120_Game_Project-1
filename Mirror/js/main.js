@@ -17,6 +17,7 @@ var footstep;
 var hud;
 var debug;
 var light;
+// var playerVision;
 var map;
 var floorLayer;
 var terrainLayer;
@@ -26,6 +27,8 @@ var cursors;
 var interactText;
 var shadowTexture;
 var gradient;
+var maskGraphic1;
+var maskGraphic2;
 // Variable:
 var playerTweenCompleted = true;
 var playerOrientation = { up: false, down: true, left: false, right: false };
@@ -54,7 +57,6 @@ var RAY_LENGTH = 80;
 // Other Constants:
 var GRID_SIZE = 32;
 var PLAYER_WALKING_DRUATION = 250;
-var LIGHT_RADIUS = 100;
 
 
 window.onload = function() {	

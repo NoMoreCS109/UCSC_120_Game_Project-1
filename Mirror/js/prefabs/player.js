@@ -28,17 +28,24 @@ function Player(game) {
 	this.animations.add('walkLeft', [8, 11], 6, true);
 	this.animations.add('walkRight', [12, 15], 6, true);
 
-	//  This will set Tile ID 26 (the coin) to call the hitCoin function when collided with
-	// map.setTileIndexCallback(26, hitCoin, this);
+	// add light:
+	light = new LightPlugin(game);
+	light.addLight();
 
-	// cursors = this.game.input.keyboard.createCursorKeys();
+	maskGraphic1 = game.add.graphics(0, 0);
+	maskGraphic2 = game.add.graphics(0, 0);
 
-	// this.wasd = {
-	//   up: this.game.input.keyboard.addKey(Phaser.Keyboard.W),
-	//   down: this.game.input.keyboard.addKey(Phaser.Keyboard.S),
-	//   left: This.game.input.keyboard.addKey(Phaser.Keyboard.A),
-	//   right: this.game.input.keyboard.addKey(Phaser.Keyboard.D),
-	// };
+	maskGraphics = game.add.group();
+
+	maskGraphics.add(maskGraphic1);
+	maskGraphics.add(maskGraphic2);
+
+	floorLayer.mask = maskGraphic1;
+	floorLayer.mask = maskGraphic2;
+	// terrainLayer.mask = maskGraphics;
+	// objectLayer.mask = maskGraphics;
+	// playerVision = new LightPlugin(game);
+	// playerVision.addLight();
 }
 
 // inherit prototype from Phaser.Sprite and set constructor to Player
@@ -97,6 +104,8 @@ Player.prototype.update = function() {
 		} 
 	}
 	this.updateFrontObject(playerOrientation);
+	light.updateLight(maskGraphic1, this, this.x, this.y+6);
+	light.updateLight(maskGraphic2, this, this.x+32, this.y+32);
 	// this.updateLight();
 	// Play footsetps while moving:
 	if(playerTweenCompleted === true) {
