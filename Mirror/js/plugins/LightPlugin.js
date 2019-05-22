@@ -51,7 +51,7 @@ LightPlugin.prototype.updateLight = function(maskGraphic, source, sourceX, sourc
 		maskGraphic.lineTo(lastX, lastY);
 	}
 	maskGraphic.lineTo(sourceX,sourceY);
-	maskGraphic.worldAlpha = 0;
+	// maskGraphic.worldAlpha = 0;
 	maskGraphic.endFill();
 	floorLayer.alpha = 0.5+Math.random()*0.5;
 };
